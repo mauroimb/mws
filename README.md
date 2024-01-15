@@ -12,8 +12,6 @@ Aggiunge metodi per controllare periodicamente lo stato del canale e gestire aut
 ws.check(activityTimeout, pongTimeout, killer=false)
 ```
 
-ricordarsi di flaggare *killer*
-
 - invia un ping dopo "activityTimeout" secondi che la connessione non dà segni di vita, emettendo l'evento "knock"
 - se il segnale di pong non arriva entro "pongTimeout" millisecondi, emette l'evento "lost"
 - se killer = true, quando arriva l'evento 'lost' termina la connessione.
@@ -74,10 +72,10 @@ ws.stop()
 ## STATE
 
 viene esposta la variabile "state", che può presentarsi in 3 stati:
-||||
-|--- |--- |--- |
-| disconnected | connecting | connected|
-||||
+|              |            |           |
+| ------------ | ---------- | --------- |
+| disconnected | connecting | connected |
+|              |            |           |
 
 ogni volta che lo stato cambia viene emesso l'evento "state" che restituisce l'oggetto 
 ```
